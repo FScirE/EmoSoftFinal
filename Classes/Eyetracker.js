@@ -186,7 +186,7 @@ class EyeTracker {
     generateHeatmap() {
         fs.writeFileSync(this.path + '\\xValues.txt', this.long_X.toString())
         fs.writeFileSync(this.path + '\\yValues.txt', this.long_Y.toString())
-        execSync(`python heatmapGenerator.py ${this.path}`, { cwd: this.path })
+        execSync(`python Python/heatmapGenerator.py ${this.path}`, { cwd: this.path })
     }
 
     async getMostFocusedFunction() { //might not work with async
@@ -194,7 +194,7 @@ class EyeTracker {
         for (let [key, value] of Object.entries(this.lookedLines)) {
             fs.appendFileSync(this.path + '\\lineDictionary.txt', `${key}:${value}\n`)
         }
-        execSync(`python findFuncFromLines.py ${this.filePath}`, { cwd: this.path })
+        execSync(`python Python/findFuncFromLines.py ${this.filePath}`, { cwd: this.path })
         //console.log(this.lookedLines)
         this.lookedLines = {} //empty
 
