@@ -1,0 +1,14 @@
+node_modules
+.vscode-test/
+*.vsix
+.env
+*.env
+.txt
+*.txt
+
+# Might not need
+envNeurosity.env
+settings.json
+
+package.json
+envNeurosity-old.env

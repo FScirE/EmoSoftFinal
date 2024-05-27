@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./webview.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/dde14a7a2f.js" crossorigin="anonymous"></script>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+<h1 class="header">Evaluate session</h1>
+<div id="dropdown">
+    <input type="text" id="textInput" placeholder="Enter Evaluation ID">
+    <select id="History">
+        <option value="New Session">New Session</option>
+        <!-- Options will be added dynamically here -->
+    </select>
+</div>
+<div id="chartContainer">
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+</div>
+<div id="contentViewer">
+    <textarea readonly></textarea>
+    <div id="closeArea" onclick="setFunctionContentArea(false)"></div>
+</div>
+<h2>Eyetracker statistics</h2>
+<div id="eyetracker">
+    <div id="topFunctions">
+        <ol>
+        </ol>
+    </div>
+    <div id="heatmap">
+        <img src="./heatmaps/heatmap.png" alt="(Missing heatmap)">
+    </div>
+</div>
+<div id ="feedbackContainer">
+    <div id="feedbackAiMessage">
+        <p id="loader"><span class="loader"></span></p>
+    </div>      
+</div>
+<div id="questionContainer">
+    <h2>Questions regarding the session</h2>
+    <div class="question">
+        <div class="labelContainer">
+            <label for="q1">I was focused during this session.</label>
+        </div>
+        <div class="slider-container">
+            <input type="range" min="0" max="100" value="0" id="focusSlider">
+            <div class="slider-value" id="focusValue">0</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <div class="labelContainer">
+            <label for="q2">I was calm during this session.</label>
+        </div>
+        <div class="slider-container">
+            <input type="range" min="0" max="100" value="0" id="calmSlider">
+            <div class="slider-value" id="calmValue">0</div>
+        </div>
+    </div>
+
+	<div class="question">
+
+		<div class="labelContainer">
+            <label for="q1">I expected to finish a lot of work during this session.</label>
+        </div>
+            <div class="rating">
+                <input type="radio" id="q1star1" name="q1rating" value="1"><label data-value="1" for="q1star1">1</label>
+                <input type="radio" id="q1star2" name="q1rating" value="2"><label data-value="2" for="q1star2">2</label>
+                <input type="radio" id="q1star3" name="q1rating" value="3"><label data-value="3" for="q1star3">3</label>
+                <input type="radio" id="q1star4" name="q1rating" value="4"><label data-value="4" for="q1star4">4</label>
+                <input type="radio" id="q1star5" name="q1rating" value="5"><label data-value="5" for="q1star5">5</label>
+            </div>
+		</label>
+	</div>
+	<div class="question">
+        <div class="labelContainer">
+		    <label for="q2">I managed to finish a lot of work during this session.</label>
+        </div>
+            <div class="rating">
+                    <input type="radio" id="q2star1" name="q2rating" value="1"><label data-value="1" for="q2star1">1</label>
+                    <input type="radio" id="q2star2" name="q2rating" value="2"><label data-value="2" for="q2star2">2</label>
+                    <input type="radio" id="q2star3" name="q2rating" value="3"><label data-value="3" for="q2star3">3</label>
+                    <input type="radio" id="q2star4" name="q2rating" value="4"><label data-value="4" for="q2star4">4</label>
+                    <input type="radio" id="q2star5" name="q2rating" value="5"><label data-value="5" for="q2star5">5</label>
+            </div>
+	</div>
+	<div class="submitBtn">
+	    <button id="submitEvaluationBtn" onclick="saveEvaluateResponses()">Save Evaluation</button>
+    </div>
+</div>
+</body>
+</html>
+<script src="./evaluateWebView.js"></script>
