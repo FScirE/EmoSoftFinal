@@ -1,0 +1,131 @@
+{
+  "name": "emoide",
+  "displayName": "emoide",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "emoide",
+      "properties": {
+        "emoide.notifications": {
+          "type": "boolean",
+          "description": "Allow Notifications",
+          "default": true
+        },
+        "emoide.thresholdFocus": {
+          "type": "integer",
+          "description": "Focus threshold for notifications",
+          "default": 30
+        },
+        "emoide.thresholdCalm": {
+          "type": "integer",
+          "description": "Calm threshold for notifications",
+          "default": 20
+        },
+        "emoide.eyeTracker": {
+          "type": "string",
+          "default": "None",
+          "markdownDescription": "[Calibrate eye tracker](command:emoide.calibrateEyeTracker)  \nIP adress of eyetracker:"
+        },
+        "emoide.highlightEye": {
+          "type": "boolean",
+          "description": "Show highlight for eyetracker",
+          "default": false
+        },
+        "emoide.stuckNotification": {
+          "type": "integer",
+          "description": "The amount of seconds you have to look on the same function to get asked if you need assistance",
+          "default": 60
+        },
+        "emoide.crownEmail": {
+          "type": "string",
+          "description": "Email for Neurosity",
+          "default": "None"
+        },
+        "emoide.crownDeviceID": {
+          "type": "string",
+          "description": "Device ID for Neurosity",
+          "default": "None"
+        },
+        "emoide.focusColor": {
+          "type": "string",
+          "description": "Color theme",
+          "enum": [
+            "Green",
+            "Blue",
+            "Yellow",
+            "Pink",
+            "Purple",
+            "Cyan",
+            "White",
+            "Mango"
+          ],
+          "default": "Green"
+        },
+        "emoide.calmColor": {
+          "type": "string",
+          "description": "Color theme",
+          "enum": [
+            "Blue",
+            "Green",
+            "Yellow",
+            "Pink",
+            "Purple",
+            "Cyan",
+            "White",
+            "Mango"
+          ],
+          "default": "Blue"
+        }
+      }
+    },
+    "commands": [
+      {
+        "title": "Start UI",
+        "command": "start.ui"
+      },
+      {
+        "title": "Calibrate Eye Tracker",
+        "command": "emoide.calibrateEye"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@neurosity/sdk": "^6.5.10",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "canvasjs": "^1.8.3",
+    "chart.js": "^4.4.2",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.5",
+    "net": "^1.0.2",
+    "openai": "^4.47.1",
+    "vscode": "^1.1.37",
+    "ws": "^8.16.0",
+    "xmldom": "^0.6.0"
+  }
+}
