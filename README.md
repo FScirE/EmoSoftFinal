@@ -6,7 +6,7 @@
 
 This manual is for a developer who wishes to make changes in the code. In this document you will find:
 
-- Where to find every functions
+- Where to find functions
 - How the components interact with each other
 - Explain the most important functionality
 
